@@ -7,4 +7,4 @@ const config = {
         '/mernproject',
 }
 
-export default config
+module.exports = config
