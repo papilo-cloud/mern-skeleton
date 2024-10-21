@@ -20,4 +20,15 @@ const getErrorMessage = (err) => {
     return message
 }
 
+const getUniqueErrorMessage = (err) => {
+    let output
+    try {
+        let filedName = err.message.substring(err.message.lastIndexOf('.$') + 2, 
+        err.message.lastIndexOf('_1'))
+        output = filedName.charAt(0).toUpperCase() + filedName.slice(1) + 'already exists'
+    } catch(ex) {
+        output = 'Unique field already exists'
+    }
+    return output
+}
 module.exports = {getErrorMessage}
