@@ -4,7 +4,8 @@ const mongoose = require('mongoose')
 
 mongoose.set('strictQuery', false)
 
-main().catch(err => console.error(err))
+main().catch(() => {throw new Error(`unable to connect to DB: ${config.mongoUri}`)}
+)
 async function main() {
     const client = await mongoose.connect(config.mongoUri, 
     {
@@ -16,10 +17,10 @@ async function main() {
     })
 }
 
-mongoose.connection.on('error', () => {
-    throw new Error(`unable to connect to DB: ${config.mongoUri}`);
+// mongoose.connection.on('error', () => {
+//     throw new Error(`unable to connect to DB: ${config.mongoUri}`);
     
-})
+// })
 app.listen(config.port, (err) => {
     if (err) {
         console.error(err)
