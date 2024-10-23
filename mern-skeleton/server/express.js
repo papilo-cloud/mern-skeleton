@@ -5,6 +5,8 @@ const compress = require('compression')
 const helmet = require('helmet')
 const cors = require('cors')
 const template = require('../template')
+const userRoute = require('./routes/user.route')
+const authRoute = require('./routes/auth.route')
 
 const app = express()
 
@@ -18,5 +20,8 @@ app.use(cors())
 app.get('/', (req, res) => {
     res.status(200).send(template())
 })
+
+app.use('/', userRoute)
+app.use('/', authRoute)
 
 module.exports = app
