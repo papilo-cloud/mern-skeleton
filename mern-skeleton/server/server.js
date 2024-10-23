@@ -1,6 +1,8 @@
 const config = require('../config/config')
 const app = require('./express')
+const userRoute = require('./routes/user.route')
 const mongoose = require('mongoose')
+
 
 mongoose.set('strictQuery', false)
 
@@ -17,10 +19,6 @@ async function main() {
     })
 }
 
-// mongoose.connection.on('error', () => {
-//     throw new Error(`unable to connect to DB: ${config.mongoUri}`);
-    
-// })
 app.listen(config.port, (err) => {
     if (err) {
         console.error(err)
