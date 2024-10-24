@@ -19,7 +19,7 @@
 ### Integrating user auth and protected routes
 To restrict access to user operations such as user profile view, user update, and user delete, we will first implement sign-in authentication with JWT, then use it to protect and authorize the read, update, and delete routes.
 
-- [Auth routes](https://github.com/papilo-cloud/mern-skeleton/blob/main/mern-skeleton/server/routes/user.route.js) The auth routes are assigned the corresponding controller functions, which should be called
+- [Auth routes](https://github.com/papilo-cloud/mern-skeleton/blob/main/mern-skeleton/server/routes/auth.route.js) The auth routes are assigned the corresponding controller functions, which should be called
 when requests are received for these routes. 
 The auth routes are as follows:
     - '/auth/signin': POST request to authenticate the user with their email and password
