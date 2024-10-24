@@ -21,12 +21,12 @@ To restrict access to user operations such as user profile view, user update, an
 
 - [Auth routes](https://github.com/papilo-cloud/mern-skeleton/blob/main/mern-skeleton/server/routes/user.route.js) The auth routes are assigned the corresponding controller functions, which should be called
 when requests are received for these routes. 
-    The auth routes are as follows:
+The auth routes are as follows:
     - '/auth/signin': POST request to authenticate the user with their email and password
     - '/auth/signout': GET request to clear the cookies containing a JWT that was set on the object after sign-in
 - [Auth controller](https://github.com/papilo-cloud/mern-skeleton/blob/main/mern-skeleton/server/controllers/auth.controller.js) The auth controller functions in will not only handle requests to the signin and signout routes, but also provide JWT
 and express-jwt functionality to enable authentication and authorization for protected user API endpoints.
-    The file will have the following structure:
+The file will have the following structure:
     ```js
         exports.signin = () => {...}
         exports.signout = () => {...}
