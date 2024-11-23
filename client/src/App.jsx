@@ -7,7 +7,7 @@ function App() {
 
   useEffect(() => {
     const fetchPost = async () => {
-      const post = await axios.get('http://localhost:3000/api/users')
+      const post = await axios.get('/api/users')
       console.log(post.data)
       setCount(post.data)
     }
@@ -17,7 +17,7 @@ function App() {
 
   return (
     <>
-      {count.map(c => <li>{c.password } </li> )}
+      {count.map(c => <li>{c.name } </li> )}
     </>
   )
 }
