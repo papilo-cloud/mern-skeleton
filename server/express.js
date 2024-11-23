@@ -15,6 +15,6 @@ app.use(cookieParser())
 app.use(logger('tiny'))
 app.use('/', express.static(path.join(__dirname, '/public')))
 app.use('/api/users', userRouter)
-app.use('/auth', authRoute)
+app.use('/api/auth', authRoute)
 
 module.exports = app
