@@ -1,14 +1,17 @@
 const express = require('express')
-const { createUser, getUsers } = require('../controllers/users.controller')
-const authenticate = require('../lib/authenticate_password')
-const validate = require('../lib/validate_password')
+const userController = require('../controllers/users.controller')
+const enforce = require('../lib/enforce')
 const userRouter = express.Router()
 
 
 userRouter.route('/')
-    .get(getUsers)
-userRouter.route('/register')
-    .post(validate, createUser)
+    .get(userController.getUsersRoute)
+
+
+userRouter.route('/:userId')
+    .get(enforce(userController.userPolicy), userController.getUserRoute)
+    .put(enforce(userController.userPolicy), userController.updateUserRoute)
+    .delete(enforce(userController.userPolicy), userController.deleteUserRoute)
 
 
 module.exports = userRouter
