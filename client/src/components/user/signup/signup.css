@@ -1,0 +1,51 @@
+.signup{
+    min-height: 80vh;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    font-family: sans-serif;
+}
+.signup span{
+    font-weight: bold;
+    font-size: 18px;
+}
+.form{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.form input{
+    border: 0;
+    border-bottom: 1px solid #434d99;
+    color: black;
+    padding: 8px 0;
+    margin-bottom: 20px;
+    width: 250px;
+}
+.form input:focus{
+    outline: none;
+}
+.form textarea{
+    width: 250px;
+    min-height: 50px;
+    outline: none;
+    border: 0;
+    border-bottom: 1px solid #2d024a;
+    margin-bottom: 10px;
+}
+.form .error{
+    color: tomato;
+    margin: 5px 0;
+    font-weight: normal;
+}
+.form button{
+    cursor: pointer;
+    padding: 6px 16px;
+    background: #2d024a;
+    color: #fff;
+    border-radius: 5px;
+}
