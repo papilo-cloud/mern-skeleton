@@ -7,6 +7,7 @@ let getUsersRoute = async (req, res) => {
     try {
         let users = await User.find()
         res.json(users)
+        console.log(req.cookies.t)
     } catch (err) {
         return res.status(400).json({
             error: getErrorMessage(err)
@@ -49,8 +50,13 @@ let deleteUserRoute = async (req, res) => {
     }
 }
 
-let getUserRoute = (req, res) => {
-    return res.json(req.profile)
+let getUserRoute = async (req, res) => {
+    try {
+        const user = await User.findById(req.params.userId)
+        res.json(user)
+    } catch (err) {
+        return res.status(500).json(err)
+    }
 }
 
 module.exports = {
