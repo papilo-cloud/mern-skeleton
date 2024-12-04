@@ -1,17 +1,17 @@
 import clsx from 'clsx';
 import React from 'react'
-export interface TextAreaProps extends React.ComponentProps<'input'> {
+export interface TextAreaProps extends React.ComponentProps<'textarea'> {
 	error?: any;
 }
 
-const TextArea = ({className, children, ...props}: TextAreaProps) => {
+const TextArea = ({error, className, children, ...props}: TextAreaProps) => {
   return (
-    <div 
+    <textarea 
         {...props}
         className={clsx('outline-none focus:outline-none border-b border-[#2d024a]',
-            'mb-5 min-h-12 min-w-[250px] text-black ', className)}>
-        {children}
-    </div>
+            'mb-5 min-h-12 min-w-[300px] placeholder:text-black text-black font-medium ',
+             className)}
+    />
   )
 }
 
