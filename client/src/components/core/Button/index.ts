@@ -1,9 +1,5 @@
-import Root from "./Root.tsx";
-import Text from "./Text.tsx";
+import Button from "./Button.tsx";
+import ButtonText from "./ButtonText.tsx";
 
-const CTA = {
-    Root,
-    Text
-}
 
-export default CTA
+export { Button, ButtonText}
