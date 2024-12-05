@@ -1,5 +1,4 @@
-import React, { useContext } from 'react'
-import './signout.css'
+import { useContext } from 'react'
 import { Context } from '../../../context/Context.tsx'
 import { useNavigate } from 'react-router-dom'
 
@@ -17,8 +16,8 @@ const SignOut = () => {
   }
 
   return (
-    <div className='signout'>
-        <button onClick={handleNavigate}>
+    <div className='mt-40'>
+        <button className='border-2 rounded-sm bg-gray-400 p-2' onClick={handleNavigate}>
             Sign Out
         </button>
     </div>
