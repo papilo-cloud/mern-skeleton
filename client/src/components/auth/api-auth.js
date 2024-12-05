@@ -5,7 +5,7 @@ const create = async (user) => {
         let response = await axios.post('/api/auth/register', user)
         return response.data
     } catch (err) {
-        console.log(err)
+        return err.response.data
     }
 }
 
@@ -19,7 +19,7 @@ const signin = async (user) => {
         })
         return response.data
     } catch (err) {
-        console.log(err)
+        return err.response.data
     }
 }
 
@@ -28,7 +28,7 @@ const signout = async () => {
         let response = await axios.get('/api/auth/signout')
         return response.data
     } catch (err) {
-        console.log(err)
+        return err.response.data
     }
 }
 
