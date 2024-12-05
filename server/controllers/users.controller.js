@@ -7,7 +7,7 @@ let getUsersRoute = async (req, res) => {
     try {
         let users = await User.find()
         res.json(users)
-        console.log(req.cookies.t)
+        // console.log(req.cookies.t)
     } catch (err) {
         return res.status(400).json({
             error: getErrorMessage(err)
@@ -55,7 +55,9 @@ let getUserRoute = async (req, res) => {
         const user = await User.findById(req.params.userId)
         res.json(user)
     } catch (err) {
-        return res.status(500).json(err)
+        return res.status(400).json({
+            error: getErrorMessage(err)
+        })
     }
 }
 

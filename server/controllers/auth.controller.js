@@ -42,7 +42,6 @@ let signin = async (req, res) => {
             {userId: user.id},
             config.jwtSecret
         )
-        console.log(token)
         res.cookie('t', token, {expire: new Date() + 9999})
 
         return res.json({
