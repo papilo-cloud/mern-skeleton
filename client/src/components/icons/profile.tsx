@@ -3,7 +3,7 @@ import React, { ComponentProps } from "react"
 const Profile: React.FC<ComponentProps<'svg'>> = ({...props}) => {
   return (
     <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
-	 viewBox="0 0 200 200" enable-background="new 0 0 200 200" 
+	 viewBox="0 0 200 200" enableBackground="new 0 0 200 200" 
    {...props}>
     <path fill="#282828" d="M135.832,140.848h-70.9c-2.9,0-5.6-1.6-7.4-4.5c-1.4-2.3-1.4-5.7,0-8.6l4-8.2c2.8-5.6,9.7-9.1,14.9-9.5
         c1.7-0.1,5.1-0.8,8.5-1.6c2.5-0.6,3.9-1,4.7-1.3c-0.2-0.7-0.6-1.5-1.1-2.2c-6-4.7-9.6-12.6-9.6-21.1c0-14,9.6-25.3,21.5-25.3
