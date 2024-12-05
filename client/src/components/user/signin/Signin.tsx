@@ -3,7 +3,7 @@ import { FormField, TextField, HelperText } from '../../core/Form/index'
 import {ButtonText, Button} from '../../core/Button/index.ts'
 import { signin } from '../../auth/api-auth'
 import { useEffect, useState } from 'react'
-import { data, useLocation, useNavigate } from 'react-router-dom'
+import { useLocation, useNavigate } from 'react-router-dom'
 
 
 const Signin = () => {
@@ -44,6 +44,8 @@ const Signin = () => {
         pathname: '/',
       }
   }
+
+  console.log(from)
 
   useEffect(() => {
     const {redirectToReferrer} = values
