@@ -25,9 +25,9 @@ const read = async (params, credentials, signal) => {
 
 const update = async (params, credentials, user) => {
     try {
-        const response = await axios.put(`/api/users/${params.userId}`, user, {
+        const response = await axios.put(`/api/users/${params}`, user, {
             headers: {
-                Authorization: `Bearer ${credentials.t}`
+                Authorization: `Bearer ${credentials}`
             }
         })
         return response.data
@@ -38,11 +38,12 @@ const update = async (params, credentials, user) => {
 
 const remove = async (params, credentials) => {
     try {
-        const response = await axios.delete(`/api/users/${params.userId}`, {
+        const response = await axios.delete(`/api/users/${params}`, {
             headers: {
-                Authorization: `Bearer ${credentials.t}`
+                Authorization: `Bearer ${credentials}`
             }
         })
+        return response
     } catch (err) {
         return err.response.data
     }
