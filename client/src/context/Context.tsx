@@ -1,26 +1,69 @@
-import { createContext, useState } from "react"
+import { createContext, useContext, useState } from "react"
+import { signin } from '../components/auth/api-auth'
+import { auth } from '../components/auth/auth-helper'
 
-// const INITIAL_STATE = {
-//     login: true
-// }
 
 interface ContextProps {
-    isLogedIn: () => void
-    login: boolean
+    auth: any
 }
 
-export const Context = createContext({} as ContextProps)
+const authContext = createContext({} as ContextProps)
 
+export const useAuth = () => {
+    return useContext(authContext)
+}
 export const ContextProvider = ({children}) => {
-    const [login, setLogin] = useState(true)
+    const auth = useProvideAuth()
+    
 
-    const isLogedIn = () => setLogin(false)
+    console.log(auth.values)
     return(
-        <Context.Provider value={{
-           isLogedIn,
-           login
-        }}>
+        <authContext.Provider value={{auth}}>
             {children}
-        </Context.Provider>
+        </authContext.Provider>
     )
+}
+
+const useProvideAuth = () => {
+    const [values, setValues] = useState({
+        email: '',
+        password: '',
+        error: '',
+        redirectToReferrer: false
+      })
+
+    const onSignin = (val) => {
+
+        setValues(val)
+        const user = {
+            email: val.email || undefined,
+            password: val.password || undefined
+        }
+        signin(user).then(data => {
+            if (data.error) {
+                setValues({...values, error: data.error})
+            } else {
+                auth.authenticate(data, () => {
+                    setValues({...values, error: '', redirectToReferrer: true})
+                })
+            }
+        })
+    }
+    const signout = (cb) => {
+        return auth.clearJwt(() => {
+            setValues({email: '',
+                password: '',
+                error: '',
+                redirectToReferrer: false});
+            cb()
+        })
+    } 
+        
+
+    return {
+        onSignin,
+        values,
+        setValues,
+        signout
+    }
 }
