@@ -6,6 +6,8 @@ import Signin from './components/user/signin/Signin.tsx'
 import Signup from './components/user/signup/Signup.tsx'
 import Profile from './components/user/Profile.tsx'
 import PrivateRoute from './components/auth/PrivateRoute.tsx'
+import EditProfile from './components/user/EditProfile.js'
+
 
 function App() {
 
@@ -14,7 +16,7 @@ function App() {
       <Routes>
         <Route path='/' element={ <Layout /> }>
           <Route index element={ <Home />} />
-          <Route path='/users/:userId' element={
+          <Route path='/user/:userId' element={
             <PrivateRoute>
               <Profile />
             </PrivateRoute>
@@ -23,6 +25,11 @@ function App() {
           <Route path='/users' element={ <Users /> } />
           <Route path='/signin' element={<Signin /> } />
           <Route path='/signup' element={ <Signup /> } />
+          <Route path='/user/edit/:userId' element={ 
+            <PrivateRoute>
+              <EditProfile /> 
+            </PrivateRoute>
+           } />
         </Route>
       </Routes>
     </BrowserRouter>
