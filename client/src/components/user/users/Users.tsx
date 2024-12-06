@@ -1,16 +1,21 @@
 import { useEffect, useState } from 'react'
 import { list } from '../api-user'
-import Profile from '../../icons/profile'
+import ProfileIcon from '../../icons/ProfileIcon'
 import RightArrow from '../../icons/RightArrow'
 import {Card, CardContent} from '../../core/Card/index'
+import { Link } from 'react-router-dom'
 
 const Users = () => {
     const [users, setUsers] = useState<any>([])
 
     useEffect(() => {
     list()
-        .then(data => {
-            setUsers(data)
+        .then((response) => {
+            if (response?.status !=  200) {
+                console.log(response)
+            } else {
+                setUsers(response.data)
+            }
         })
     }, [])
     
@@ -23,15 +28,19 @@ const Users = () => {
                     (users || []).map(user =>       
                         <ul
                             className='relative flex items-center justify-center m-0 p-0 w-full'
-                            key={user.name}>
+                            key={user._id}>
                             <li className=' cursor-pointer flex-0'>
-                                <Profile className='w-10' />
+                            <span className=' bg-gray-400 rounded-full flex items-center p-1'>
+                                <ProfileIcon width={'50px'} />
+                            </span>
                             </li>
-                            <li className=' cursor-pointer flex-1'>
+                            <li className='text-lg font-medium cursor-pointer ml-2 flex-1'>
                                 {user.name}
                             </li>
                             <li className=' cursor-pointer flex-1'>
-                                <RightArrow className=' absolute top-1 right-0' width={'30px'} height={'30px'} />
+                                <Link to={user._id}>
+                                    <RightArrow className=' absolute top-1 right-0' width={'30px'} height={'30px'} />
+                                </Link>
                             </li>
                     </ul> ) 
                 }
