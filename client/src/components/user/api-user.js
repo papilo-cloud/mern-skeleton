@@ -1,33 +1,25 @@
 import axios from 'axios'
-const create = async (user) => {
-    try {
-        let response = await axios.post('/api/users/register', user)
-        return response.data
-    } catch (err) {
-        console.log(err)
-    }
-}
 
-const list = async (signal) => {
+const list = async () => {
     try {
-        let response = await axios.get('/api/users', {signal})
-        return response.data
+        let response = await axios.get('/api/users')
+        return response
     } catch (error) {
-        console.log(error)
+        return error.response
     }
 }
 
 const read = async (params, credentials, signal) => {
     try {
-        const response = await axios.get(`/api/users/${params.userId}`, {
+        const response = await axios.get(`/api/users/${params}`, {
             signal,
             headers: {
-                Authorization: `Bearer ${credentials.t}`
+                Authorization: `Bearer ${credentials}`
             }
         })
-        return  response.data
+        return  response
     } catch (err) {
-        console.log(err)
+        return err.response
     }
 }
 
@@ -40,7 +32,7 @@ const update = async (params, credentials, user) => {
         })
         return response.data
     } catch (err) {
-        console.log(err)
+        return err.response.data
     }
 }
 
@@ -52,6 +44,8 @@ const remove = async (params, credentials) => {
             }
         })
     } catch (err) {
-        console.log(err)
+        return err.response.data
     }
 }
+
+export { list, read, update, remove }
