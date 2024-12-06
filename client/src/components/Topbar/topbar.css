@@ -8,7 +8,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background: #2d024a;
+    background: #1a0529;
     color: #fff;
     overflow: hidden;
     z-index: 1;
@@ -27,4 +27,11 @@
 .topbar ul li{
     font-family: sans-serif;
     font-size: 18px;
+    text-transform: uppercase;
+}
+li button{
+    text-transform: uppercase;
+}
+a.active{
+    color: rgb(234, 100, 100);
 }
