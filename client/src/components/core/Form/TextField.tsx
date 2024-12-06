@@ -15,7 +15,8 @@ const TextField = ({
       <input
         {...props}
         className={clsx('outline-none focus:outline-none border-b border-[#2d024a]',
-            'min-w-[250px] text-black ', className
+            'min-w-[300px] text-black placeholder:text-black font-medium',
+            className
       )} />
     </label>
   )
