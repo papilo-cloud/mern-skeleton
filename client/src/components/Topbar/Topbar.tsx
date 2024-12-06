@@ -1,31 +1,34 @@
-import { useContext } from 'react'
 import './topbar.css'
-import { Link } from 'react-router-dom'
-import { Context } from '../../context/Context.tsx'
+import { NavLink, useNavigate } from 'react-router-dom'
+import { auth } from '../auth/auth-helper'
+import { useAuth } from '../../context/Context'
 
 const Topbar = () => {
-    const {login} = useContext(Context)
+    const user = auth.isAuthenticated()
+    const {signout} = useAuth().auth
+    const navigate = useNavigate()
+
+    const onSignout = () => {
+        signout(() => navigate('/', {replace: true, relative: 'path'}))
+    }
 
     return (
         <div className='topbar'>
             <nav>
-                <Link to='/'>
+                <NavLink to='/'>
                     <span>MERN Skeleton</span>
-                </Link>
+                </NavLink>
             </nav>
-            <ul>
-                
-                <li>
-                    <Link to='/users'>users</Link>
-                </li>
-                {login? <li><Link to='/profile'>my profile</Link></li>:
-                    <li><Link to='/signup'>Sign Up</Link></li>
-                    }
+            <ul>           
+                <li><NavLink to='/users'>users</NavLink></li>
                 {
-                    login?
-                    <li><Link to='/signout'>sign out</Link></li>:
-                    <li><Link to='/signin'>sign In</Link></li>
-
+                    user ? <>
+                        <li><NavLink to={`/users/${user.user.id}`}>my profile</NavLink></li>
+                        <li><button onClick={onSignout}>sign out</button></li>
+                        </>: <>
+                            <li><NavLink to='/signup'>Sign Up</NavLink></li>
+                            <li><NavLink to='/signin'>sign In</NavLink></li>
+                        </>
                 }
             </ul>
         </div>
