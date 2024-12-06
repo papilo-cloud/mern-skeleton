@@ -1,7 +1,7 @@
 import { Card, CardContent } from '../../core/Card/index'
 import { FormField, TextField, HelperText } from '../../core/Form/index'
 import {ButtonText, Button} from '../../core/Button/index.ts'
-import { useEffect, useState } from 'react'
+import { useEffect } from 'react'
 import { useLocation, useNavigate } from 'react-router-dom'
 import { useAuth } from '../../../context/Context.tsx'
 
