@@ -8,7 +8,7 @@ const CardContent: React.FC<React.ComponentProps<'div'>> = ({
 }) => {
   return (
     <div
-      className={clsx('relative flex flex-col gap-7 justify-center items-center ', className)}
+      className={clsx('relative flex flex-col gap-4 w-full justify-center items-center ', className)}
       {...props}>
         {children}
     </div>
