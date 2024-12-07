@@ -15,8 +15,6 @@ export const useAuth = () => {
 export const ContextProvider = ({children}) => {
     const auth = useProvideAuth()
     
-
-    console.log(auth.values)
     return(
         <authContext.Provider value={{auth}}>
             {children}
