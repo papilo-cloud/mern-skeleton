@@ -7,7 +7,6 @@ let getUsersRoute = async (req, res) => {
     try {
         let users = await User.find()
         res.json(users)
-        // console.log(req.cookies.t)
     } catch (err) {
         return res.status(400).json({
             error: getErrorMessage(err)
@@ -30,23 +29,20 @@ let updateUserRoute = async (req, res) => {
         const updateUser = await User.findByIdAndUpdate(req.params.userId, req.body, {new: true})
         res.status(200).json(updateUser)
     } catch (err) {
-        res.status(401).json({error: 'You can only delete your account!'})
+        res.status(401).json({error: 'You can only update your account!'})
     }
 }
 
 let deleteUserRoute = async (req, res) => {
     try {
-        const user = await User.findById(req.params.userId)
-        try {
-            await User.findByIdAndDelete(req.params.userId)
-            res.status(200).json({
-                error: 'User has been deleted...'
-            })
-        } catch (err) {
-            res.status(500).json(err)
-        }
+        await User.findByIdAndDelete(req.params.userId)
+        res.status(200).json({
+            message: 'User has been deleted...'
+        })
     } catch (err) {
-        res.status(500).json('User Not Found')
+        return res.status(400).json({
+            error: getErrorMessage(err)
+        })
     }
 }
 
