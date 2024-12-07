@@ -9,7 +9,6 @@ const userRouter = require('./routes/users.route')
 const authRoute = require('./routes/auth.route')
 const tokenAuth = require('./lib/token-auth')
 const { byToken } = require('./lib/find-user')
-const requireAuth = require('./lib/require-auth')
 
 
 app.use(express.json())
@@ -19,7 +18,6 @@ app.use(logger('tiny'))
 app.use('/', express.static(path.join(__dirname, '/public')))
 app.use('/api/auth', authRoute)
 app.use(tokenAuth(byToken))
-app.use(requireAuth)
 app.use('/api/users', userRouter)
 
 module.exports = app
