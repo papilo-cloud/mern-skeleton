@@ -38,7 +38,7 @@ const Users = () => {
                                 {user.name}
                             </li>
                             <li className=' cursor-pointer flex-1'>
-                                <Link to={user._id}>
+                                <Link to={`/user/${user._id}`}>
                                     <RightArrow className=' absolute top-1 right-0' width={'30px'} height={'30px'} />
                                 </Link>
                             </li>
