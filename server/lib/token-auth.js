@@ -4,6 +4,7 @@ const config = require('../config/config')
 let tokenAuth = (findUserByToken) => async (req, res, next) => {
     let header = req.headers.authorization
     let token = header && header.split(' ')[1]
+
     if (token) {
         let payload
         try {
