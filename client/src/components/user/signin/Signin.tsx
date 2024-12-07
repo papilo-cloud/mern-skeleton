@@ -9,7 +9,7 @@ import { useAuth } from '../../../context/Context.tsx'
 const Signin = () => {
 
   const {auth} = useAuth()
-  console.log(useAuth())
+
   const handleChange = (name) => (event) => {
     auth.setValues({
       ...auth.values,
@@ -30,7 +30,6 @@ const Signin = () => {
       }
   }
 
-  console.log(from)
 
   useEffect(() => {
     const {redirectToReferrer} = auth.values
