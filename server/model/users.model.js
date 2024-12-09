@@ -19,8 +19,9 @@ const UserSchema = new Schema({
       type: String,
       required: "Password is required"
     },
-    subject: {
+    about: {
       type: String,
+      trim: true,
       default: ''
     },
     updated: Date,

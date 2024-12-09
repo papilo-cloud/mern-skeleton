@@ -12,7 +12,6 @@ import { useAuth } from '../../context/Context.tsx'
 
 const Profile = () => {
   const [isOpen, setIsOpen] = useState(false)
-  const [redirect, setRedirect] = useState(false)
   const [user, setUser] = useState({
     name: '',
     email: '',

@@ -11,7 +11,7 @@ const Signup = () => {
     name: '',
     password: '',
     email: '',
-    subject: '',
+    about: '',
     open: false,
     error: ''
   })
@@ -29,7 +29,7 @@ const Signup = () => {
       name: values.name || undefined,
       email: values.email || undefined,
       password: values.password || undefined,
-      subject: values.subject || undefined,
+      about: values.about || undefined,
     }
 
     create(user).then((data) => {
@@ -67,8 +67,8 @@ const Signup = () => {
             onChange={handleChange('password')} />
           <TextArea 
             placeholder='About'
-            value={values.subject}
-            onChange={handleChange('subject')}/>
+            value={values.about}
+            onChange={handleChange('about')}/>
           {values.error && <HelperText>{values.error}</HelperText>}
           <Button type='submit'>
             <ButtonText>Submit</ButtonText>

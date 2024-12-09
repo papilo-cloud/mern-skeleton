@@ -13,7 +13,7 @@ let createUserRoute = async (req, res) => {
             name: req.body.name,
             email: req.body.email,
             password,
-            subject: req.body.subject
+            about: req.body.about
         })
         const users = await user.save()
         res.status(201).json(users)
