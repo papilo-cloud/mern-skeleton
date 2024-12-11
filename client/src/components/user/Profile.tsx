@@ -16,8 +16,12 @@ const Profile = () => {
     name: '',
     email: '',
     created: '',
-    _id: ''
+    _id: '',
+    about: '',
+    photo: ''
   })
+
+  const PF = 'http://localhost:3000/uploads/'
   
   const jwt = auth.isAuthenticated()
   const {userId} = useParams()
@@ -53,15 +57,23 @@ const Profile = () => {
     navigate(`/user/edit/${jwt.user.id}`)
   }
 
+
   return (
     <>
     <div className='relative flex w-full min-h-[80vh] justify-center items-center mt-20'>
-      <div className='flex flex-col drop-shadow-md rounded p-5 bg-white gap-4'>
+      <div className='flex flex-col drop-shadow-md rounded p-5 bg-white'>
           <h3 className='text-xl font-medium text-[#c14832]'>Profile</h3>
-          <div className='relative flex items-center justify-center gap-3 border-b-2 px-4 pb-2'>
-            <span className='bg-gray-400 rounded-full flex items-center p-1'>
-              <ProfileIcon width={'50px'} />
-            </span>
+          <div className='relative flex items-center justify-center gap-3 border-b-2 p-4'>
+            <div className='relative bg-gray-400 rounded-full flex items-center justify-center w-14 h-14 '>
+              {
+                user.photo ?
+                  <img
+                    className='rounded-full'
+                    src={PF+user.photo} alt="user-photo" 
+                    /> :
+                  <ProfileIcon width={'50px'} />
+              }
+            </div>
             <ul className='flex flex-col mr-20'>
               <li className=' font-medium text-lg'>{ user.name}</li>
               <li className=' opacity-70'>{user.email}</li>
@@ -78,7 +90,10 @@ const Profile = () => {
               </div>
             }
           </div>
-          <p>Joined: {new Date(user.created).toDateString()} </p>
+          <div className='border-b-2 p-2'>
+            <p>{user.about}</p>
+            <p className='opacity-70'>Joined: {new Date(user.created).toDateString()} </p>
+          </div>
       </div>
     </div>
     {
