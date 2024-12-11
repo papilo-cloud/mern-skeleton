@@ -1,4 +1,5 @@
 import clsx from "clsx";
+import TextLabel from "./TextLabel";
 
 export interface TextInputProps extends React.ComponentProps<'input'> {
   labelName?: string
@@ -10,7 +11,7 @@ const TextField = ({
     ...props
 }: TextInputProps) => {
   return (
-    <label className={clsx('flex items-center')}>
+    <TextLabel>
       {labelName}
       <input
         {...props}
@@ -18,7 +19,11 @@ const TextField = ({
             'min-w-[300px] text-black placeholder:text-black font-medium',
             className
       )} />
-    </label>
+    </TextLabel>
+    // <label className={clsx('')}>
+    //   {labelName}
+      
+    // </label>
   )
 }
 
