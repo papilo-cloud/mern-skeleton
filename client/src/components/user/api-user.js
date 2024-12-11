@@ -49,4 +49,12 @@ const remove = async (params, credentials) => {
     }
 }
 
-export { list, read, update, remove }
+const upload = async (data) => {
+    try {
+        const response = await axios.post('/api/upload', data)
+        return response
+    } catch (err) {
+        return err.response
+    }
+}
+export { list, read, update, remove, upload }
