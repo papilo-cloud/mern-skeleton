@@ -50,7 +50,8 @@ let signin = async (req, res) => {
                 id: user.id,
                 name: user.name,
                 email: user.email,
-                subject: user.subject
+                about: user.about,
+                photo: user.photo
             }
         })
         
