@@ -1,8 +1,16 @@
+import clsx from 'clsx'
 import React from 'react'
 
-const TextLabel = () => {
+const TextLabel: React.FC<React.ComponentProps<'label'>> = ({
+  className,
+  children,
+  ...props
+}) => {
   return (
-    <div>TextLabel</div>
+    <label className={clsx('flex items-center', className)}
+      {...props} >
+      {children}
+    </label>
   )
 }
 
