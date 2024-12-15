@@ -15,3 +15,18 @@
     stack.
 - The aim is to keep the skeleton as simple as possible so that it is easy to extend
     and can be used as a base application for developing different MERN applications.
+## Run Scripts
+To run the application, use these commands:
+- for the backend
+```
+cd server
+npm run dev
+```
+</pre>
+
+- for the frontend
+```
+cd client
+npm run dev
+```
+</pre>
