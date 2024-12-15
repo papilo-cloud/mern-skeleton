@@ -24,6 +24,11 @@ const UserSchema = new Schema({
       trim: true,
       default: ''
     },
+    photo: {
+      type: String,
+      required: false,
+      default: ''
+    },
     updated: Date,
     created: {
       type: Date,
