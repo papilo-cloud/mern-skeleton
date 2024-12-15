@@ -15,6 +15,18 @@
     stack.
 - The aim is to keep the skeleton as simple as possible so that it is easy to extend
     and can be used as a base application for developing different MERN applications.
+
+## Config variables
+- First we install ```dotenv```, a module that loads a `.env` file into `process.env`
+- Then create a new .env file in the server directory and add your configuration:
+```
+    MONGODBURL=your_mongodb_url
+    JWT_SECRET=your_jsonwebtoken_secret
+    PORT=port_number
+```
+- In the config/config.js file, we load the variables and expose them
+
+
 ## Run Scripts
 To run the application, use these commands:
 - for the backend
