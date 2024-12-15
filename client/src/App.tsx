@@ -1,12 +1,12 @@
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import { Layout } from './Layout/Layout.tsx'
 import Home from './components/core/home/Home.tsx'
-import Users from './components/user/users/Users.tsx'
-import Signin from './components/user/signin/Signin.tsx'
-import Signup from './components/user/signup/Signup.tsx'
-import Profile from './components/user/Profile.tsx'
+import Users from './components/Templates/users/Users.tsx'
+import Signin from './components/Templates/signin/Signin.tsx'
+import Signup from './components/Templates/signup/Signup.tsx'
+import Profile from './components/Templates/Profile.tsx'
 import PrivateRoute from './components/auth/PrivateRoute.tsx'
-import EditProfile from './components/user/EditProfile.js'
+import EditProfile from './components/Templates/EditProfile.js'
 
 
 function App() {
