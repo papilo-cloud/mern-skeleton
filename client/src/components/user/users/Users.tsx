@@ -7,6 +7,8 @@ import { Link } from 'react-router-dom'
 
 const Users = () => {
     const [users, setUsers] = useState<any>([])
+    
+    const PF = 'http://localhost:3000/uploads/'
 
     useEffect(() => {
     list()
@@ -30,9 +32,16 @@ const Users = () => {
                             className='relative flex items-center justify-center m-0 p-0 w-full'
                             key={user._id}>
                             <li className=' cursor-pointer flex-0'>
-                            <span className=' bg-gray-400 rounded-full flex items-center p-1'>
+                            <div className='relative bg-gray-400 rounded-full flex items-center justify-center w-14 h-14 '>
+                            {
+                                user.photo ?
+                                <img
+                                    className='rounded-full'
+                                    src={PF+user.photo} alt="user-photo" 
+                                    /> :
                                 <ProfileIcon width={'50px'} />
-                            </span>
+                            }
+                            </div>
                             </li>
                             <li className='text-lg font-medium cursor-pointer ml-2 flex-1'>
                                 {user.name}
