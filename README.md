@@ -42,3 +42,5 @@ cd client
 npm run dev
 ```
 </pre>
+
+### [!Screenshot](client/public/screenshot.jpg)
