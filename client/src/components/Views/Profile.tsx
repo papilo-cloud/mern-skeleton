@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 import { auth } from '../auth/auth-helper.js'
-import { read, remove } from './api-user.ts'
+import { read, remove } from './api-user'
 import { useNavigate, useParams } from 'react-router-dom'
 import ProfileIcon from '../icons/ProfileIcon.tsx'
 import EditIcon from '../icons/EditIcon.tsx'
@@ -105,10 +105,10 @@ const Profile = () => {
             </Dialog.Content>
             <Dialog.Action>
               <Button onClick={handleClick} className='bg-transparent'>
-                  <ButtonText className='text-[#262423]'>Cancel</ButtonText>
+                  <ButtonText className='text-[#262426]'>Cancel</ButtonText>
               </Button>
               <Button onClick={handleDeleteAccount} className='bg-transparent'>
-                  <ButtonText className='text-red-500'>Confirm</ButtonText>
+                  <ButtonText className='text-red-600'>Confirm</ButtonText>
               </Button>
             </Dialog.Action>
         </Dialog.Root>
