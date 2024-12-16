@@ -43,4 +43,5 @@ npm run dev
 ```
 </pre>
 
-### [!Screenshot](client/public/screenshot.jpg)
+### Screenshot of the application
+![Screenshot](https://github.com/papilo-cloud/mern-skeleton/blob/main/client/public/screenshot.jpg)
